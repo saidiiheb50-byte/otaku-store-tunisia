@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Otaku Store Tunisia - Premium manga stickers, books, and posters. Your one-stop shop for authentic anime and manga merchandise in Tunisia.">
+    <meta name="keywords" content="manga, anime, stickers, books, posters, otaku, tunisia, merchandise">
+    <meta name="author" content="Otaku Store Tunisia">
+    <meta property="og:title" content="Otaku Store Tunisia - Manga Stickers, Books & Posters">
+    <meta property="og:description" content="Your one-stop shop for premium manga stickers, books, and posters in Tunisia">
+    <meta property="og:type" content="website">
+    <meta name="theme-color" content="#E91E63">
+    <title>Otaku Store Tunisia - Manga Stickers, Books & Posters</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Store",
+        "name": "Otaku Store Tunisia",
+        "description": "Premium manga stickers, books, and posters store in Tunisia",
+        "url": "https://otakustore.tn",
+        "telephone": "+21612345678",
+        "email": "info@otakustore.tn",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Tunis",
+            "addressCountry": "TN"
+        },
+        "openingHours": "Mo-Sa 10:00-20:00"
+    }
+    </script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <div class="logo">
+                    <h2>🎌 Otaku Store Tunisia</h2>
+                </div>
+                <ul class="nav-menu" id="navMenu" role="navigation" aria-label="Main navigation">
+                    <li><a href="#home" aria-label="Go to home section">Home</a></li>
+                    <li><a href="#catalog" aria-label="Go to catalog section">Catalog</a></li>
+                    <li><a href="#about" aria-label="Go to about section">About</a></li>
+                    <li><a href="#contact" aria-label="Go to contact section">Contact</a></li>
+                    <li><a href="#cart" class="cart-link" aria-label="View shopping cart"><span aria-hidden="true">Cart (</span><span id="cartCount" aria-live="polite">0</span><span aria-hidden="true">)</span></a></li>
+                </ul>
+                <div class="nav-actions">
+                    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme" title="Toggle dark/light theme">
+                        <span class="theme-toggle-icon" id="themeIcon">🌙</span>
+                        <span class="theme-toggle-text" id="themeText">Dark</span>
+                    </button>
+                    <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Home Section -->
+    <section id="home" class="hero">
+        <div class="hero-overlay"></div>
+        <div class="container">
+            <div class="hero-content">
+                <h1>Welcome to Otaku Store Tunisia</h1>
+                <p>Your one-stop shop for premium manga stickers, books, and posters. Discover your favorite anime and manga merchandise!</p>
+                <a href="#catalog" class="cta-button">Shop Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products Section -->
+    <section class="featured-products">
+        <div class="container">
+            <h2 class="section-title">Featured Products</h2>
+            <div class="products-grid" id="featuredProducts">
+                <!-- Products will be loaded by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Catalog Section -->
+    <section id="catalog" class="catalog">
+        <div class="container">
+            <h2 class="section-title">Our Catalog</h2>
+            <div class="catalog-controls">
+                <div class="search-box">
+                    <label for="searchInput" class="sr-only">Search products</label>
+                    <input type="text" id="searchInput" placeholder="Search products..." aria-label="Search products" autocomplete="off">
+                </div>
+                <div class="category-filters" role="group" aria-label="Filter products by category">
+                    <button class="filter-btn active" data-category="all" aria-pressed="true">All</button>
+                    <button class="filter-btn" data-category="stickers" aria-pressed="false">Stickers</button>
+                    <button class="filter-btn" data-category="books" aria-pressed="false">Books</button>
+                    <button class="filter-btn" data-category="posters" aria-pressed="false">Posters</button>
+                </div>
+            </div>
+            <div class="products-grid" id="catalogProducts">
+                <!-- Products will be loaded by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Detail Modal -->
+    <div id="productModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-hidden="true">
+        <div class="modal-content">
+            <button class="close-modal" aria-label="Close product details">&times;</button>
+            <div id="productDetail">
+                <!-- Product details will be loaded by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Cart Section -->
+    <section id="cart" class="cart-section">
+        <div class="container">
+            <h2 class="section-title">Shopping Cart</h2>
+            <div class="cart-container">
+                <div class="cart-items" id="cartItems">
+                    <p class="empty-cart">Your cart is empty</p>
+                </div>
+                <div class="cart-summary" id="cartSummary">
+                    <h3>Order Summary</h3>
+                    <div class="summary-row">
+                        <span>Subtotal:</span>
+                        <span id="subtotal">0.00 TND</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Shipping:</span>
+                        <span id="shipping">5.00 TND</span>
+                    </div>
+                    <div class="summary-row total">
+                        <span>Total:</span>
+                        <span id="total">5.00 TND</span>
+                    </div>
+                    <button class="checkout-btn" id="checkoutBtn" disabled aria-disabled="true">Proceed to Checkout</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Checkout Section -->
+    <section id="checkout" class="checkout-section">
+        <div class="container">
+            <h2 class="section-title">Checkout</h2>
+            <form class="checkout-form" id="checkoutForm">
+                <div class="form-section">
+                    <h3>Customer Information</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="customerName">Full Name *</label>
+                            <input type="text" id="customerName" name="customerName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="customerPhone">Phone Number *</label>
+                            <input type="tel" id="customerPhone" name="customerPhone" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="customerEmail">Email</label>
+                        <input type="email" id="customerEmail" name="customerEmail">
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h3>Delivery Address</h3>
+                    <div class="form-group">
+                        <label for="deliveryAddress">Full Address *</label>
+                        <textarea id="deliveryAddress" name="deliveryAddress" rows="3" required></textarea>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="city">City *</label>
+                            <input type="text" id="city" name="city" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="postalCode">Postal Code</label>
+                            <input type="text" id="postalCode" name="postalCode">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h3>Delivery Method</h3>
+                    <div class="delivery-options">
+                        <label class="delivery-option">
+                            <input type="radio" name="deliveryMethod" value="home" checked>
+                            <span>Home Delivery (5 TND)</span>
+                        </label>
+                        <label class="delivery-option">
+                            <input type="radio" name="deliveryMethod" value="pickup">
+                            <span>Store Pickup (Free)</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h3>Order Summary</h3>
+                    <div id="checkoutSummary"></div>
+                </div>
+
+                <button type="submit" class="submit-order-btn">Place Order</button>
+            </form>
+            <div class="form-message" id="orderMessage"></div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">About Otaku Store Tunisia</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Welcome to Otaku Store Tunisia, your premier destination for authentic manga merchandise in Tunisia. We specialize in bringing you the best collection of manga stickers, books, and posters from your favorite series.</p>
+                    
+                    <h3>Our Mission</h3>
+                    <p>We are passionate about anime and manga culture and committed to providing high-quality products to fellow otakus across Tunisia. Our goal is to make authentic manga merchandise accessible to everyone.</p>
+
+                    <h3>Shipping Policy</h3>
+                    <p>We offer delivery throughout Tunisia:</p>
+                    <ul>
+                        <li><strong>Home Delivery:</strong> 5 TND - Delivered to your door within 3-5 business days</li>
+                        <li><strong>Store Pickup:</strong> Free - Pick up your order at our store location</li>
+                    </ul>
+                    <p>Orders are typically processed within 1-2 business days. You will receive a confirmation email or WhatsApp message once your order is ready.</p>
+
+                    <h3>Payment</h3>
+                    <p>We accept cash on delivery and bank transfers. Payment details will be confirmed when you place your order.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Contact Us</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">📞</div>
+                        <div>
+                            <h3>Phone</h3>
+                            <p><a href="tel:+21612345678">+216 12 345 678</a></p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">💬</div>
+                        <div>
+                            <h3>WhatsApp</h3>
+                            <a href="https://wa.me/21612345678" class="whatsapp-btn" target="_blank">Chat with us on WhatsApp</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">✉️</div>
+                        <div>
+                            <h3>Email</h3>
+                            <p><a href="mailto:info@otakustore.tn">info@otakustore.tn</a></p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">📍</div>
+                        <div>
+                            <h3>Store Location</h3>
+                            <p>Tunis, Tunisia</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">🕒</div>
+                        <div>
+                            <h3>Opening Hours</h3>
+                            <p>Monday - Saturday: 10:00 - 20:00<br>Sunday: Closed</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Otaku Store Tunisia</h3>
+                    <p>Your trusted source for manga merchandise in Tunisia.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#catalog">Catalog</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Categories</h3>
+                    <ul>
+                        <li><a href="#catalog" data-category="stickers">Stickers</a></li>
+                        <li><a href="#catalog" data-category="books">Books</a></li>
+                        <li><a href="#catalog" data-category="posters">Posters</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Otaku Store Tunisia. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
