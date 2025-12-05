@@ -69,10 +69,9 @@ export default function ProductModal({ product, onClose }: ProductModalProps) {
               <button 
                 className="add-to-cart-btn" 
                 onClick={handleAddToCart}
-                style={{ padding: '1rem 2rem', fontSize: '1.1rem' }}
                 aria-label={`Add ${product.name} to cart`}
               >
-                Add to Cart
+                add to cart
               </button>
             </div>
           </div>

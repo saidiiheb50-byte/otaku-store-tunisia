@@ -49,6 +49,15 @@
     --card-bg: var(--bg-dark-secondary);
 }
 
+/* Enhanced button visibility in dark theme */
+[data-theme="dark"] .checkout-btn:not(:disabled) {
+    box-shadow: 0 2px 8px rgba(233, 30, 99, 0.4);
+}
+
+[data-theme="dark"] .checkout-btn:not(:disabled):hover {
+    box-shadow: 0 4px 16px rgba(233, 30, 99, 0.5);
+}
+
 /* Auto theme based on time */
 [data-theme="auto"] {
     --bg-primary: var(--white);
@@ -68,6 +77,15 @@
     --border-color: var(--border-dark);
     --shadow-color: var(--shadow-dark);
     --card-bg: var(--bg-dark-secondary);
+}
+
+/* Enhanced button visibility in auto night mode */
+[data-theme="auto"][data-time="night"] .checkout-btn:not(:disabled) {
+    box-shadow: 0 2px 8px rgba(233, 30, 99, 0.4);
+}
+
+[data-theme="auto"][data-time="night"] .checkout-btn:not(:disabled):hover {
+    box-shadow: 0 4px 16px rgba(233, 30, 99, 0.5);
 }
 
 html {
@@ -490,6 +508,42 @@ section {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.product-card:hover .product-image img {
+    transform: scale(1.05);
+}
+
+.product-image-fallback {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+}
+
+.product-emoji {
+    font-size: 4rem;
+    z-index: 2;
+    position: relative;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+.product-image-pattern {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(255, 255, 255, 0.05) 10px, rgba(255, 255, 255, 0.05) 20px),
+        repeating-linear-gradient(-45deg, transparent, transparent 10px, rgba(255, 255, 255, 0.05) 10px, rgba(255, 255, 255, 0.05) 20px);
+    opacity: 0.5;
+    z-index: 1;
 }
 
 .product-info {
@@ -611,6 +665,8 @@ section {
     justify-content: center;
     color: var(--white);
     font-size: 5rem;
+    position: relative;
+    overflow: hidden;
 }
 
 .product-detail-image img {
@@ -618,6 +674,11 @@ section {
     height: 100%;
     object-fit: cover;
     border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.product-detail-image:hover img {
+    transform: scale(1.02);
 }
 
 .product-detail-info h2 {
@@ -818,7 +879,7 @@ section {
     padding: 0.875rem 1.5rem;
     background: var(--primary-color);
     color: var(--white) !important;
-    border: none;
+    border: 2px solid var(--primary-color);
     border-radius: 50px;
     font-size: 1rem;
     font-weight: 600;
@@ -831,45 +892,69 @@ section {
     justify-content: center;
     min-height: 48px;
     line-height: 1.4;
-    box-shadow: 0 2px 8px rgba(233, 30, 99, 0.3);
+    box-shadow: 0 2px 8px var(--shadow-color);
+    position: relative;
+    z-index: 1;
 }
 
 .checkout-btn:not(:disabled):hover {
     background: var(--secondary-color);
+    border-color: var(--secondary-color);
+    color: var(--white) !important;
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(233, 30, 99, 0.4);
+    box-shadow: 0 4px 12px var(--shadow-color);
 }
 
 .checkout-btn:not(:disabled):active {
     transform: translateY(0);
-    box-shadow: 0 2px 6px rgba(233, 30, 99, 0.3);
+    box-shadow: 0 2px 6px var(--shadow-color);
+}
+
+.checkout-btn:not(:disabled):focus-visible {
+    outline: 3px solid var(--primary-color);
+    outline-offset: 2px;
+    background: var(--primary-color);
+    color: var(--white) !important;
 }
 
 
 .checkout-btn:disabled {
-    opacity: 0.7;
+    opacity: 0.65;
     cursor: not-allowed;
     background: var(--text-secondary) !important;
-    color: var(--bg-primary) !important;
+    border-color: var(--border-color) !important;
+    color: var(--text-primary) !important;
     pointer-events: none;
     position: relative;
+    box-shadow: 0 1px 3px var(--shadow-color);
 }
 
 .checkout-btn:disabled:hover {
     transform: none;
     background: var(--text-secondary) !important;
+    border-color: var(--border-color) !important;
+    color: var(--text-primary) !important;
+    box-shadow: 0 1px 3px var(--shadow-color);
 }
 
-.checkout-btn:disabled::before {
+.checkout-btn:disabled::after {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.1);
+    background: linear-gradient(135deg, transparent 0%, rgba(0, 0, 0, 0.05) 100%);
     border-radius: 50px;
     pointer-events: none;
+}
+
+/* Ensure button text is always visible */
+.checkout-btn,
+.checkout-btn:disabled,
+.checkout-btn:not(:disabled) {
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    letter-spacing: 0.3px;
 }
 
 /* Checkout Section */

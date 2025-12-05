@@ -286,12 +286,40 @@ function loadCatalogProducts(filteredProducts = products) {
     DOMCache.catalogProducts.innerHTML = filteredProducts.map(product => createProductCard(product)).join('');
 }
 
+// Generate otaku-friendly placeholder image URL
+function getOtakuPlaceholderImage(product) {
+    // Use placeholder.com with anime/manga theme colors
+    const width = 400;
+    const height = 400;
+    
+    // Category-based color schemes (anime-themed)
+    const categoryColors = {
+        'stickers': { bg: 'E91E63', accent: 'FF6B9D' }, // Pink/Magenta
+        'books': { bg: '9C27B0', accent: 'BA68C8' },    // Purple
+        'posters': { bg: 'FF5722', accent: 'FF8A65' }   // Orange/Red
+    };
+    
+    const colors = categoryColors[product.category] || categoryColors['stickers'];
+    const textColor = 'FFFFFF';
+    const text = encodeURIComponent(product.name.substring(0, 15));
+    
+    // Create gradient-style placeholder with anime theme
+    // Using placehold.co with custom styling
+    return `https://placehold.co/${width}x${height}/${colors.bg}/${textColor}?text=${text}&font=poppins`;
+}
+
 // Create Product Card - with accessibility improvements
 function createProductCard(product) {
+    const placeholderUrl = getOtakuPlaceholderImage(product);
+    
     return `
         <div class="product-card" data-product-id="${product.id}" role="article" aria-label="${product.name}">
             <div class="product-image" aria-hidden="true">
-                <span>${product.image}</span>
+                <img src="${placeholderUrl}" alt="${product.name}" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <div class="product-image-fallback" style="display: none;">
+                    <span class="product-emoji">${product.image}</span>
+                    <div class="product-image-pattern"></div>
+                </div>
             </div>
             <div class="product-info">
                 <span class="product-category">${product.category}</span>
@@ -466,10 +494,16 @@ function showProductDetail(productId) {
     const product = products.find(p => p.id === productId);
     if (!product || !DOMCache.modal || !DOMCache.productDetail) return;
     
+    const placeholderUrl = getOtakuPlaceholderImage(product);
+    
     DOMCache.productDetail.innerHTML = `
         <div class="product-detail">
             <div class="product-detail-image" aria-hidden="true">
-                <span>${product.image}</span>
+                <img src="${placeholderUrl}" alt="${product.name}" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <div class="product-image-fallback" style="display: none;">
+                    <span class="product-emoji">${product.image}</span>
+                    <div class="product-image-pattern"></div>
+                </div>
             </div>
             <div class="product-detail-info">
                 <span class="product-category">${product.category}</span>

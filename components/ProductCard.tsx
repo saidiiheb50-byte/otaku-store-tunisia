@@ -40,7 +40,7 @@ export default function ProductCard({ product, onProductClick }: ProductCardProp
               onClick={handleAddToCart}
               aria-label={`Add ${product.name} to cart`}
             >
-              Add to Cart
+              add to cart
             </button>
           </div>
         </div>
