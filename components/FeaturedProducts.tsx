@@ -29,3 +29,4 @@ export default function FeaturedProducts({ onProductClick }: FeaturedProductsPro
   )
 }
 
+

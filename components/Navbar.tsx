@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react'
 import { useCart } from '@/context/CartContext'
 import Link from 'next/link'
+import Image from 'next/image'
 
 interface NavbarProps {
   activeSection: string
@@ -30,7 +31,16 @@ export default function Navbar({ activeSection }: NavbarProps) {
       <div className="container">
         <div className="nav-wrapper">
           <div className="logo">
-            <h2>🎌 Otaku Store Tunisia</h2>
+            <a href="#home" onClick={(e) => { e.preventDefault(); scrollToSection('home') }} className="logo-link">
+              <Image 
+                src="/logo.svg" 
+                alt="HADRUMET STORE" 
+                width={180} 
+                height={48}
+                priority
+                className="logo-image"
+              />
+            </a>
           </div>
           <ul className={`nav-menu ${isMenuOpen ? 'active' : ''}`} id="navMenu">
             <li>
@@ -78,4 +88,5 @@ export default function Navbar({ activeSection }: NavbarProps) {
     </nav>
   )
 }
+
 

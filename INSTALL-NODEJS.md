@@ -88,3 +88,4 @@ Si vous rencontrez des problèmes :
 2. Exécutez le script de vérification : `powershell -ExecutionPolicy Bypass -File check-setup.ps1`
 3. Consultez les logs d'erreur dans le terminal
 
+

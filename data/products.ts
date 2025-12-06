@@ -30,3 +30,4 @@ export const products: Product[] = [
   { id: 22, name: "Anime Characters Collage Poster", category: "posters", price: 35.00, description: "Large A2 poster featuring multiple anime characters", image: "🎨" }
 ]
 
+

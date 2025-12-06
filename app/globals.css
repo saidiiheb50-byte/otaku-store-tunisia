@@ -64,10 +64,27 @@ h1 {
     padding: 1rem 0;
 }
 
-.logo h2 {
-    color: var(--gold-accent);
-    font-size: 1.5rem;
-    font-weight: 700;
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+}
+
+.logo-link:hover {
+    opacity: 0.8;
+}
+
+.logo-image {
+    height: auto;
+    width: auto;
+    max-height: 48px;
+    object-fit: contain;
 }
 
 .nav-menu {
@@ -1146,6 +1163,10 @@ input:focus-visible {
         display: flex;
     }
 
+    .logo-image {
+        max-height: 36px;
+    }
+
     .nav-menu {
         position: fixed;
         left: -100%;
@@ -1202,6 +1223,10 @@ input:focus-visible {
 }
 
 @media (max-width: 480px) {
+    .logo-image {
+        max-height: 32px;
+    }
+
     .hero-content h1 {
         font-size: 1.5rem;
     }

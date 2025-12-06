@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 100" width="400" height="100">
+  <defs>
+    <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#D4C4A0;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#E0D4B8;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#F5E6D3;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <text x="20" y="65" font-family="'Arial', 'Helvetica', sans-serif" font-size="42" font-weight="700" letter-spacing="2" fill="url(#logoGradient)">HADRUMET STORE</text>
+</svg>
+
