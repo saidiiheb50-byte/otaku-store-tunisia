@@ -1,7 +1,6 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { useCart } from '@/context/CartContext'
 import Link from 'next/link'
 
 interface NavbarProps {
@@ -10,8 +9,6 @@ interface NavbarProps {
 
 export default function Navbar({ activeSection }: NavbarProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const { getCartCount } = useCart()
-  const cartCount = getCartCount()
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId)
@@ -58,15 +55,6 @@ export default function Navbar({ activeSection }: NavbarProps) {
             <li>
               <a href="#contact" onClick={(e) => { e.preventDefault(); scrollToSection('contact') }}>
                 Contact
-              </a>
-            </li>
-            <li>
-              <a 
-                href="#cart" 
-                className="cart-link"
-                onClick={(e) => { e.preventDefault(); scrollToSection('cart') }}
-              >
-                Cart ({cartCount})
               </a>
             </li>
           </ul>
