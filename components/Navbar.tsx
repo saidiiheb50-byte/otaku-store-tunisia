@@ -3,7 +3,6 @@
 import { useState, useEffect } from 'react'
 import { useCart } from '@/context/CartContext'
 import Link from 'next/link'
-import Image from 'next/image'
 
 interface NavbarProps {
   activeSection: string
@@ -32,13 +31,11 @@ export default function Navbar({ activeSection }: NavbarProps) {
         <div className="nav-wrapper">
           <div className="logo">
             <a href="#home" onClick={(e) => { e.preventDefault(); scrollToSection('home') }} className="logo-link">
-              <Image 
+              <img 
                 src="/logo.svg" 
                 alt="HADRUMET STORE" 
-                width={180} 
-                height={48}
-                priority
                 className="logo-image"
+                style={{ display: 'block' }}
               />
             </a>
           </div>

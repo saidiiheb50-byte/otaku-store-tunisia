@@ -6,6 +6,6 @@
       <stop offset="100%" style="stop-color:#F5E6D3;stop-opacity:1" />
     </linearGradient>
   </defs>
-  <text x="20" y="65" font-family="'Arial', 'Helvetica', sans-serif" font-size="42" font-weight="700" letter-spacing="2" fill="url(#logoGradient)">HADRUMET STORE</text>
+  <text x="20" y="65" font-family="Arial, Helvetica, sans-serif" font-size="42" font-weight="700" letter-spacing="2" fill="url(#logoGradient)">HADRUMET STORE</text>
 </svg>
 

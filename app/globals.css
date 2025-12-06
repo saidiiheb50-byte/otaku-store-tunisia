@@ -67,6 +67,7 @@ h1 {
 .logo {
     display: flex;
     align-items: center;
+    z-index: 10;
 }
 
 .logo-link {
@@ -74,6 +75,7 @@ h1 {
     align-items: center;
     text-decoration: none;
     transition: opacity 0.3s ease;
+    height: 48px;
 }
 
 .logo-link:hover {
@@ -81,10 +83,12 @@ h1 {
 }
 
 .logo-image {
-    height: auto;
+    height: 48px;
     width: auto;
-    max-height: 48px;
+    max-width: 200px;
+    min-width: 120px;
     object-fit: contain;
+    display: block;
 }
 
 .nav-menu {

@@ -199,6 +199,34 @@ body {
     font-weight: 700;
 }
 
+.logo-image {
+    height: auto;
+    max-width: 140px;
+    max-height: 40px;
+    width: auto;
+    object-fit: contain;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.logo-image:hover {
+    transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+    .logo-image {
+        max-width: 120px;
+        max-height: 35px;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo-image {
+        max-width: 100px;
+        max-height: 30px;
+    }
+}
+
 .nav-menu {
     display: flex;
     list-style: none;
