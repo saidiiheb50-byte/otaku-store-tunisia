@@ -3,7 +3,6 @@
 import { useState, useEffect } from 'react'
 import { useCart } from '@/context/CartContext'
 import Link from 'next/link'
-import { useRouter } from 'next/navigation'
 
 interface NavbarProps {
   activeSection: string
@@ -13,7 +12,6 @@ export default function Navbar({ activeSection }: NavbarProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const { getCartCount } = useCart()
   const cartCount = getCartCount()
-  const router = useRouter()
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId)
@@ -27,78 +25,64 @@ export default function Navbar({ activeSection }: NavbarProps) {
     setIsMenuOpen(false)
   }
 
-  const handleAdminClick = (e: React.MouseEvent) => {
-    e.preventDefault()
-    router.push('/admin')
-  }
-
   return (
-    <>
-      <nav className="navbar" id="navbar">
-        <div className="container">
-          <div className="nav-wrapper">
-            <div className="logo">
-              <a href="#home" onClick={(e) => { e.preventDefault(); scrollToSection('home') }} className="logo-link">
-                <img 
-                  src="/logo.svg" 
-                  alt="HADRUMET STORE" 
-                  className="logo-image"
-                  style={{ display: 'block' }}
-                />
-              </a>
-            </div>
-            <ul className={`nav-menu ${isMenuOpen ? 'active' : ''}`} id="navMenu">
-              <li>
-                <a href="#home" onClick={(e) => { e.preventDefault(); scrollToSection('home') }}>
-                  Home
-                </a>
-              </li>
-              <li>
-                <a href="#catalog" onClick={(e) => { e.preventDefault(); scrollToSection('catalog') }}>
-                  Catalog
-                </a>
-              </li>
-              <li>
-                <a href="#about" onClick={(e) => { e.preventDefault(); scrollToSection('about') }}>
-                  About
-                </a>
-              </li>
-              <li>
-                <a href="#contact" onClick={(e) => { e.preventDefault(); scrollToSection('contact') }}>
-                  Contact
-                </a>
-              </li>
-              <li>
-                <a 
-                  href="#cart" 
-                  className="cart-link"
-                  onClick={(e) => { e.preventDefault(); scrollToSection('cart') }}
-                >
-                  Cart ({cartCount})
-                </a>
-              </li>
-            </ul>
-            <button 
-              className={`hamburger ${isMenuOpen ? 'active' : ''}`}
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              aria-label="Toggle navigation menu"
-              aria-expanded={isMenuOpen}
-            >
-              <span></span>
-              <span></span>
-              <span></span>
-            </button>
+    <nav className="navbar" id="navbar">
+      <div className="container">
+        <div className="nav-wrapper">
+          <div className="logo">
+            <a href="#home" onClick={(e) => { e.preventDefault(); scrollToSection('home') }} className="logo-link">
+              <img 
+                src="/logo.svg" 
+                alt="HADRUMET STORE" 
+                className="logo-image"
+                style={{ display: 'block' }}
+              />
+            </a>
           </div>
+          <ul className={`nav-menu ${isMenuOpen ? 'active' : ''}`} id="navMenu">
+            <li>
+              <a href="#home" onClick={(e) => { e.preventDefault(); scrollToSection('home') }}>
+                Home
+              </a>
+            </li>
+            <li>
+              <a href="#catalog" onClick={(e) => { e.preventDefault(); scrollToSection('catalog') }}>
+                Catalog
+              </a>
+            </li>
+            <li>
+              <a href="#about" onClick={(e) => { e.preventDefault(); scrollToSection('about') }}>
+                About
+              </a>
+            </li>
+            <li>
+              <a href="#contact" onClick={(e) => { e.preventDefault(); scrollToSection('contact') }}>
+                Contact
+              </a>
+            </li>
+            <li>
+              <a 
+                href="#cart" 
+                className="cart-link"
+                onClick={(e) => { e.preventDefault(); scrollToSection('cart') }}
+              >
+                Cart ({cartCount})
+              </a>
+            </li>
+          </ul>
+          <button 
+            className={`hamburger ${isMenuOpen ? 'active' : ''}`}
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            aria-label="Toggle navigation menu"
+            aria-expanded={isMenuOpen}
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
         </div>
-      </nav>
-      {/* Invisible Admin Button - Top Right Corner */}
-      <button
-        className="admin-button-invisible"
-        onClick={handleAdminClick}
-        aria-label="Admin Panel"
-        title="Admin Panel"
-      />
-    </>
+      </div>
+    </nav>
   )
 }
 

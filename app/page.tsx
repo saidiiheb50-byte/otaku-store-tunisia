@@ -9,6 +9,7 @@ import Cart from '@/components/Cart'
 import Checkout from '@/components/Checkout'
 import About from '@/components/About'
 import Contact from '@/components/Contact'
+import Admin from '@/components/Admin'
 import Footer from '@/components/Footer'
 import ProductModal from '@/components/ProductModal'
 import { CartProvider } from '@/context/CartContext'
@@ -21,7 +22,7 @@ export default function Home() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['home', 'catalog', 'about', 'contact', 'cart', 'checkout']
+      const sections = ['home', 'catalog', 'about', 'contact', 'admin', 'cart', 'checkout']
       const scrollPosition = window.scrollY + 100
 
       for (const section of sections) {
@@ -61,6 +62,7 @@ export default function Home() {
         <Checkout />
         <About />
         <Contact />
+        <Admin />
       </main>
       <Footer />
       {isModalOpen && selectedProduct && (
