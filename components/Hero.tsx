@@ -14,11 +14,24 @@ export default function Hero() {
 
   return (
     <section id="home" className="hero">
-      <div className="hero-overlay"></div>
+      <div className="hero-overlay">
+        <iframe 
+          src="/hadru-2.pdf" 
+          className="hero-pdf-background"
+          title="HADRUMET STORE Background"
+        />
+      </div>
       <div className="container">
         <div className="hero-content">
           <h1>Welcome to Otaku Store Tunisia</h1>
           <p>Your one-stop shop for premium manga stickers, books, and posters. Discover your favorite anime and manga merchandise!</p>
+          <div className="hero-logo">
+            <img 
+              src="/logo.svg" 
+              alt="HADRUMET STORE" 
+              className="hero-logo-image"
+            />
+          </div>
           <div className="cta-button-wrapper">
             <a href="#catalog" className="cta-button" onClick={(e) => { e.preventDefault(); scrollToCatalog() }}>
               Shop Now
