@@ -231,13 +231,13 @@ function cacheDOMElements() {
 
 // Navigation
 function initNavigation() {
-    const hamburger = document.getElementById('hamburger');
-    const navMenu = document.getElementById('navMenu');
-    
-    if (hamburger && navMenu) {
-        hamburger.addEventListener('click', () => {
+const hamburger = document.getElementById('hamburger');
+const navMenu = document.getElementById('navMenu');
+
+if (hamburger && navMenu) {
+    hamburger.addEventListener('click', () => {
             const isActive = navMenu.classList.toggle('active');
-            hamburger.classList.toggle('active');
+        hamburger.classList.toggle('active');
             hamburger.setAttribute('aria-expanded', isActive.toString());
         });
     }
@@ -246,27 +246,27 @@ function initNavigation() {
     if (navMenu && hamburger) {
         navMenu.addEventListener('click', (e) => {
             if (e.target.tagName === 'A') {
-                navMenu.classList.remove('active');
-                hamburger.classList.remove('active');
+        navMenu.classList.remove('active');
+        hamburger.classList.remove('active');
                 hamburger.setAttribute('aria-expanded', 'false');
             }
-        });
-    }
-    
-    // Smooth scrolling
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                const offsetTop = target.offsetTop - 80;
-                window.scrollTo({
-                    top: offsetTop,
-                    behavior: 'smooth'
-                });
-            }
-        });
     });
+    }
+
+    // Smooth scrolling
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+                const offsetTop = target.offsetTop - 80;
+            window.scrollTo({
+                top: offsetTop,
+                behavior: 'smooth'
+            });
+        }
+    });
+});
 }
 
 // Load Featured Products
@@ -747,11 +747,11 @@ function updateCheckoutSummary() {
 
 // Handle Checkout
 function handleCheckout(e) {
-    e.preventDefault();
-    
+        e.preventDefault();
+        
     const formData = new FormData(e.target);
-    const data = Object.fromEntries(formData);
-    
+        const data = Object.fromEntries(formData);
+        
     const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
     const shipping = data.deliveryMethod === 'pickup' ? 0 : 5.00;
     const total = subtotal + shipping;
@@ -783,8 +783,8 @@ function handleCheckout(e) {
     
     // In a real application, send this to your server
     console.log('Order placed:', orderSummary);
-    
-    // Show success message
+        
+        // Show success message
     const messageEl = document.getElementById('orderMessage');
     if (messageEl) {
         messageEl.className = 'form-message success';
@@ -800,23 +800,23 @@ function handleCheckout(e) {
     saveCart();
     updateCartCount();
     loadCart();
-    
-    // Reset form
+        
+        // Reset form
     e.target.reset();
-    
-    // In a real application, you would send this data to your server:
+        
+        // In a real application, you would send this data to your server:
     // fetch('/api/orders', {
-    //     method: 'POST',
-    //     headers: { 'Content-Type': 'application/json' },
+        //     method: 'POST',
+        //     headers: { 'Content-Type': 'application/json' },
     //     body: JSON.stringify(orderSummary)
-    // })
-    // .then(response => response.json())
-    // .then(data => {
+        // })
+        // .then(response => response.json())
+        // .then(data => {
     //     // Handle success
-    // })
-    // .catch(error => {
+        // })
+        // .catch(error => {
     //     // Handle error
-    // });
+        // });
 }
 
 // Show Notification - improved with accessibility
