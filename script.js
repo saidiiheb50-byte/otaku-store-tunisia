@@ -625,7 +625,6 @@ function updateCartCount() {
     const count = cart.reduce((sum, item) => sum + item.quantity, 0);
     if (DOMCache.cartCount) {
         DOMCache.cartCount.textContent = count;
-        DOMCache.cartCount.setAttribute('aria-label', `${count} items in cart`);
     }
 }
 
