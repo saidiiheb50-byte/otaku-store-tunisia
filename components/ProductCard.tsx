@@ -24,7 +24,25 @@ export default function ProductCard({ product, onProductClick }: ProductCardProp
       aria-label={product.name}
     >
       <div className="product-image" aria-hidden="true">
-        <span>{product.image}</span>
+        {product.image && (product.image.startsWith('/') || product.image.startsWith('http')) ? (
+          <img 
+            src={product.image} 
+            alt={product.name}
+            onError={(e) => {
+              // Fallback to emoji if image fails to load
+              const target = e.target as HTMLImageElement;
+              target.style.display = 'none';
+              const parent = target.parentElement;
+              if (parent && !parent.querySelector('span')) {
+                const span = document.createElement('span');
+                span.textContent = '🖼️';
+                parent.appendChild(span);
+              }
+            }}
+          />
+        ) : (
+          <span>{product.image || '🖼️'}</span>
+        )}
       </div>
       <div className="product-info">
         <span className="product-category">{product.category}</span>

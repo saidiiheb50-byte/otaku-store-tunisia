@@ -1,12 +1,18 @@
 import { Product } from '@/context/CartContext'
 
+// To add product images:
+// - Place images in the /public folder (e.g., /public/products/naruto-sticker.jpg)
+// - Use the path starting with "/" (e.g., image: "/products/naruto-sticker.jpg")
+// - Or use external URLs (e.g., image: "https://example.com/image.jpg")
+// - If no image path is provided, the emoji will be shown as fallback
+
 export const products: Product[] = [
   // Stickers
-  { id: 1, name: "Naruto Sticker Pack", category: "stickers", price: 15.00, description: "Set of 10 high-quality Naruto character stickers", image: "🎌" },
+  { id: 1, name: "Naruto Sticker Pack", category: "stickers", price: 15.00, description: "Set of 10 high-quality Naruto character stickers", image: "/products/naruto-sticker.jpg" },
   { id: 2, name: "One Piece Sticker Pack", category: "stickers", price: 15.00, description: "Set of 10 One Piece character stickers", image: "🏴‍☠️" },
   { id: 3, name: "Dragon Ball Z Stickers", category: "stickers", price: 12.00, description: "Set of 8 Dragon Ball Z character stickers", image: "🐉" },
   { id: 4, name: "Attack on Titan Stickers", category: "stickers", price: 18.00, description: "Set of 12 Attack on Titan themed stickers", image: "⚔️" },
-  { id: 5, name: "My Hero Academia Stickers", category: "stickers", price: 16.00, description: "Set of 10 My Hero Academia character stickers", image: "🦸" },
+  { id: 5, name: "My Hero Academia Stickers", category: "stickers", price: 16.00, description: "Set of 10 My Hero Academia character stickers", image: "/products/my-hero-academia-stickers.jpg" },
   { id: 6, name: "Demon Slayer Stickers", category: "stickers", price: 17.00, description: "Set of 10 Demon Slayer character stickers", image: "🗡️" },
   
   // Books
