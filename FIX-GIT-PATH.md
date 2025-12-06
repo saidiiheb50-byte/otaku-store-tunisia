@@ -50,3 +50,4 @@ If this works, I can create commands using the full path.
 **Try Solution 1 first (restart PowerShell) - that usually fixes it!**
 
 
+

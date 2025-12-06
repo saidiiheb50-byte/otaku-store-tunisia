@@ -79,3 +79,4 @@ export default function Catalog({ onProductClick }: CatalogProps) {
 
 
 
+

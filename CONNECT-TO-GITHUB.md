@@ -160,3 +160,4 @@ If Git asks for a password, you need a Personal Access Token:
 **Recommended:** Use **Option 2 (GitHub Desktop)** - it's the easiest and doesn't require command line knowledge!
 
 
+
