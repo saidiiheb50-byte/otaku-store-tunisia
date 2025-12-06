@@ -1175,6 +1175,263 @@ section {
     line-height: 1.8;
 }
 
+/* Stickers Section */
+.stickers-section {
+    background: var(--bg-primary);
+    transition: background-color 0.3s ease;
+}
+
+/* Posters Section */
+.posters-section {
+    background: var(--bg-secondary);
+    transition: background-color 0.3s ease;
+}
+
+/* Admin Section */
+.admin-section {
+    background: var(--bg-secondary);
+    transition: background-color 0.3s ease;
+    min-height: 80vh;
+}
+
+.admin-link {
+    background: var(--accent-color) !important;
+    color: var(--white) !important;
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    font-weight: 600;
+}
+
+.admin-link:hover {
+    background: #E64A19 !important;
+}
+
+.admin-login {
+    max-width: 400px;
+    margin: 3rem auto;
+}
+
+.admin-login-box {
+    background: var(--card-bg);
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px var(--shadow-color);
+}
+
+.admin-login-box h3 {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.admin-tabs {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    border-bottom: 2px solid var(--border-color);
+}
+
+.admin-tab {
+    padding: 1rem 2rem;
+    background: transparent;
+    border: none;
+    border-bottom: 3px solid transparent;
+    color: var(--text-primary);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: inherit;
+}
+
+.admin-tab:hover {
+    color: var(--primary-color);
+}
+
+.admin-tab.active {
+    color: var(--primary-color);
+    border-bottom-color: var(--primary-color);
+}
+
+.admin-tab-content {
+    display: none;
+    background: var(--card-bg);
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px var(--shadow-color);
+}
+
+.admin-tab-content.active {
+    display: block;
+}
+
+.admin-tab-content h3 {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+}
+
+.admin-product-form {
+    max-width: 800px;
+}
+
+.admin-products-list {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.admin-product-item {
+    background: var(--bg-secondary);
+    padding: 1.5rem;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 2px solid var(--border-color);
+    transition: all 0.3s ease;
+}
+
+.admin-product-item:hover {
+    border-color: var(--primary-color);
+    box-shadow: 0 3px 10px var(--shadow-color);
+}
+
+.admin-product-info {
+    flex-grow: 1;
+}
+
+.admin-product-info h4 {
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+}
+
+.admin-product-info p {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin: 0.25rem 0;
+}
+
+.admin-product-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.admin-btn {
+    padding: 0.7rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: inherit;
+    font-size: 0.95rem;
+}
+
+.admin-btn-primary {
+    background: var(--primary-color);
+    color: var(--white);
+}
+
+.admin-btn-primary:hover {
+    background: var(--secondary-color);
+    transform: translateY(-2px);
+}
+
+.admin-btn-secondary {
+    background: var(--text-secondary);
+    color: var(--white);
+}
+
+.admin-btn-secondary:hover {
+    background: var(--text-light);
+}
+
+.admin-btn-danger {
+    background: var(--accent-color);
+    color: var(--white);
+}
+
+.admin-btn-danger:hover {
+    background: #E64A19;
+}
+
+.admin-btn-edit {
+    background: var(--secondary-color);
+    color: var(--white);
+}
+
+.admin-btn-edit:hover {
+    background: #7B1FA2;
+}
+
+/* Image Upload Styles */
+.image-upload-container {
+    margin-top: 1rem;
+}
+
+.image-upload-input {
+    display: none;
+}
+
+.image-upload-label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    border: 2px dashed var(--border-color);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: var(--bg-secondary);
+}
+
+.image-upload-label:hover {
+    border-color: var(--primary-color);
+    background: var(--bg-primary);
+}
+
+.upload-icon {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+}
+
+.upload-text {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.image-preview {
+    margin-top: 1rem;
+    display: none;
+}
+
+.image-preview img {
+    max-width: 100%;
+    max-height: 300px;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px var(--shadow-color);
+}
+
+.image-info {
+    margin-top: 0.5rem;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+.image-info.error {
+    color: var(--accent-color);
+}
+
+.image-info.success {
+    color: var(--success);
+}
+
+.form-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
 /* Contact Section */
 .contact {
     background: var(--bg-secondary);

@@ -74,21 +74,28 @@ h1 {
     display: flex;
     align-items: center;
     text-decoration: none;
-    transition: opacity 0.3s ease;
-    height: 48px;
+    transition: all 0.3s ease;
+    height: 44px;
+    padding: 2px 0;
 }
 
 .logo-link:hover {
-    opacity: 0.8;
+    opacity: 0.9;
 }
 
 .logo-image {
-    height: 48px;
+    height: 44px;
     width: auto;
-    max-width: 200px;
-    min-width: 120px;
+    max-width: 220px;
+    min-width: 140px;
     object-fit: contain;
     display: block;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.logo-image:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
 }
 
 .nav-menu {
@@ -190,6 +197,30 @@ h1 {
     margin-bottom: 2rem;
     opacity: 0.95;
     animation: fadeInUp 1.2s ease;
+}
+
+.hero-logo {
+    margin: 1.5rem 0 2rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: fadeInUp 1.4s ease;
+}
+
+.hero-logo-image {
+    height: 50px;
+    width: auto;
+    max-width: 240px;
+    min-width: 160px;
+    object-fit: contain;
+    display: block;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    filter: drop-shadow(0 2px 8px rgba(212, 196, 160, 0.3));
+}
+
+.hero-logo-image:hover {
+    transform: scale(1.08);
+    opacity: 0.95;
 }
 
 /* Animated Button Wrapper - Reusable class for important buttons */
@@ -1168,7 +1199,15 @@ input:focus-visible {
     }
 
     .logo-image {
-        max-height: 36px;
+        height: 38px;
+        max-width: 180px;
+        min-width: 120px;
+    }
+
+    .hero-logo-image {
+        height: 42px;
+        max-width: 200px;
+        min-width: 140px;
     }
 
     .nav-menu {
@@ -1228,7 +1267,15 @@ input:focus-visible {
 
 @media (max-width: 480px) {
     .logo-image {
-        max-height: 32px;
+        height: 32px;
+        max-width: 150px;
+        min-width: 100px;
+    }
+
+    .hero-logo-image {
+        height: 36px;
+        max-width: 170px;
+        min-width: 120px;
     }
 
     .hero-content h1 {

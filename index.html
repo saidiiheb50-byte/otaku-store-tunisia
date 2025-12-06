@@ -44,9 +44,12 @@
                 <ul class="nav-menu" id="navMenu" role="navigation" aria-label="Main navigation">
                     <li><a href="#home" aria-label="Go to home section">Home</a></li>
                     <li><a href="#catalog" aria-label="Go to catalog section">Catalog</a></li>
+                    <li><a href="#stickers" aria-label="Go to stickers section">Stickers</a></li>
+                    <li><a href="#posters" aria-label="Go to posters section">Posters</a></li>
                     <li><a href="#about" aria-label="Go to about section">About</a></li>
                     <li><a href="#contact" aria-label="Go to contact section">Contact</a></li>
                     <li><a href="#cart" class="cart-link" aria-label="View shopping cart"><span aria-hidden="true">Cart (</span><span id="cartCount" aria-live="polite">0</span><span aria-hidden="true">)</span></a></li>
+                    <li><a href="#admin" class="admin-link" id="adminLink" style="display: none;" aria-label="Admin panel">🔧 Admin</a></li>
                 </ul>
                 <div class="nav-actions">
                     <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme" title="Toggle dark/light theme">
@@ -103,6 +106,26 @@
             </div>
             <div class="products-grid" id="catalogProducts">
                 <!-- Products will be loaded by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Stickers Section -->
+    <section id="stickers" class="stickers-section">
+        <div class="container">
+            <h2 class="section-title">Stickers Collection</h2>
+            <div class="products-grid" id="stickersProducts">
+                <!-- Stickers will be loaded by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Posters Section -->
+    <section id="posters" class="posters-section">
+        <div class="container">
+            <h2 class="section-title">Posters Collection</h2>
+            <div class="products-grid" id="postersProducts">
+                <!-- Posters will be loaded by JavaScript -->
             </div>
         </div>
     </section>
